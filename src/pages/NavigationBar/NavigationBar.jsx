@@ -32,6 +32,7 @@ const NavigationBar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/blog">Blog</Link></li>
+                        <li><Link to="/login">Login</Link></li>
 
                     </ul>
                 </div>
@@ -55,7 +56,7 @@ const NavigationBar = () => {
                         </ul>
                     </div>
                     :
-                    <li><Link to="/login">Login</Link></li>
+                    <></>
 
                 }
             </nav>
