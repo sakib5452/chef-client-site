@@ -17,6 +17,7 @@ const NavigationBar = () => {
                         </ul>
                     </div>
                     {/* <img src={logo} alt="" /> */}
+                    hello
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
