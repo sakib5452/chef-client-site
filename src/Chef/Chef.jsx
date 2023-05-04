@@ -1,7 +1,9 @@
 import React from 'react';
+import { HandThumbUpIcon } from '@heroicons/react/24/solid'
+import { Link } from 'react-router-dom';
 
 const Chef = ({ chef }) => {
-    const { chefName, chefImg, experience, recipes, likes } = chef
+    const { id, chefName, chefImg, experience, recipes, likes } = chef
     return (
         <div>
             <section class="shadow-xl rounded-lg">
@@ -15,12 +17,13 @@ const Chef = ({ chef }) => {
                     <h2 class=" text-base font-semibold">{experience}</h2>
                     <div class="flex justify-between items-center mt-3 ">
                         <div class="text-base uppercase font-semibold text-gray-500">{recipes}</div>
-                        <div class="text-base text-right">
-                            <h2>{likes}</h2>
+                        <div class="text-base text-right flex gap-3">
+                            <div> <HandThumbUpIcon className="h-6 w-6 text-blue-500" /></div>
+                            <div><h2>{likes}</h2></div>
                         </div>
                     </div>
                     <div className='mt-5'>
-                        <button className='btn btn-primary'>View Recipes</button>
+                        <Link to={`/detail/${id}`}><button className='btn btn-primary'>View Recipes</button></Link>
                     </div>
                 </article>
             </section>

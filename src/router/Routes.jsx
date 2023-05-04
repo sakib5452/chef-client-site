@@ -6,6 +6,8 @@ import Terms from "../pages/Shared/Terms/Terms";
 import LoginLayout from "../layouts/LoginLayout";
 import ChefDetail from "../ChefDetail/ChefDetail";
 import Blog from "../Blog/Blog";
+import Details from "../Details/Details";
+import Recipes from "../Recipes/Recipes";
 
 
 const router = createBrowserRouter([
@@ -44,7 +46,13 @@ const router = createBrowserRouter([
                 element: <ChefDetail></ChefDetail>,
                 loader: () => fetch(`http://localhost:5000/chef/`)
             },
+
         ]
+    },
+    {
+        path: 'detail/:id',
+        element: <Details></Details>,
+        loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
     },
 ])
 

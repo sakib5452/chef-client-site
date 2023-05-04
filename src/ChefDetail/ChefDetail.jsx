@@ -6,7 +6,7 @@ const ChefDetail = () => {
     const { id } = useParams();
     const ChefDetails = useLoaderData();
     return (
-        <div className='grid grid-cols-3 ml-20 gap-10 mb-28'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 sm:mr-20 ml-20 gap-10 mb-28'>
             {
                 ChefDetails.map(chef => <Chef
                     key={chef.id}
