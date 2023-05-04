@@ -6,6 +6,7 @@ import Footer from '../pages/Shared/Footer/Footer';
 import Login from '../pages/Login/Login/Login';
 import Register from '../pages/Login/Register/Register';
 import About from '../About/About';
+import Recipes from '../Recipes/Recipes';
 
 const Main = () => {
     return (
@@ -14,6 +15,7 @@ const Main = () => {
             <Header></Header>
             <Outlet></Outlet>
             <About></About>
+            <Recipes></Recipes>
             <Footer></Footer>
         </div>
     );
