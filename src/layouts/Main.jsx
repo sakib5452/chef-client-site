@@ -12,9 +12,8 @@ const Main = () => {
         <div>
             <NavigationBar></NavigationBar>
             <Header></Header>
-            <About></About>
             <Outlet></Outlet>
-
+            <About></About>
             <Footer></Footer>
         </div>
     );

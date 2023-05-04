@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2'
 import { useLoaderData, useParams } from 'react-router-dom';
 import { HandThumbUpIcon, HeartIcon, StarIcon } from '@heroicons/react/24/solid'
+import NavigationBar from '../pages/NavigationBar/NavigationBar';
+import Footer from '../pages/Shared/Footer/Footer';
 
 const Details = () => {
     const { id } = useParams();
@@ -8,15 +11,57 @@ const Details = () => {
     const { chefName, chefImg, experience, recipes, likes, bio, recipe } = RecipeDetail
     console.log(RecipeDetail)
     const [open, setOpen] = useState(true);
+    const [open1, setOpen1] = useState(true);
+    const [open2, setOpen2] = useState(true);
 
     const handleAccepted = event => {
-        setOpen(event.target.checked)
+        if (open) {
+            setOpen(event.target.checked)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            return
+        }
+        else {
+            return
+        }
     }
 
+    const handleAccepted1 = event => {
+        if (open) {
+            setOpen1(event.target.checked)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            return
+        }
+    }
+    const handleAccepted2 = event => {
+        if (open) {
+            setOpen2(event.target.checked)
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            return
+        }
+    }
 
     return (
         <div>
-            <section class=" m-24">
+            <NavigationBar></NavigationBar>
+            <section class=" mr-24 ml-24 mt-10">
                 <article class="mx-auto pb-5 max-w-sm transform duration-500 hover:-translate-y-1 cursor-pointer group">
                     <div class="max-h-125 overflow-hidden">
                         <img class="transform duration-300 group-hover:scale-110 h-96 rounded-lg" src={chefImg} alt="" />
@@ -38,7 +83,7 @@ const Details = () => {
                     </div>
                 </article>
             </section>
-            <div className='grid grid-cols-3 ml-20 mb-10'>
+            <div className='grid grid-cols-1 gap-5 lg:grid-cols-3 ml-20 mb-10 mt-5'>
                 <div>
                     <div className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
@@ -111,8 +156,8 @@ const Details = () => {
                                 <div><h2>{recipe[1].rating}</h2></div>
                             </div>
                             <div>
-                                <div onClick={handleAccepted}>
-                                    <button className='btn btn-primary' disabled={!open} ><HeartIcon className="h-6 w-6" /></button>
+                                <div onClick={handleAccepted1}>
+                                    <button className='btn btn-primary' disabled={!open1} ><HeartIcon className="h-6 w-6" /></button>
                                 </div>
                             </div>
                         </div>
@@ -162,8 +207,8 @@ const Details = () => {
                                 <div><h2>{recipe[2].rating}</h2></div>
                             </div>
                             <div>
-                                <div onClick={handleAccepted}>
-                                    <button className='btn btn-primary' disabled={!open} ><HeartIcon className="h-6 w-6" /></button>
+                                <div onClick={handleAccepted2}>
+                                    <button className='btn btn-primary' disabled={!open2} ><HeartIcon className="h-6 w-6" /></button>
                                 </div>
                             </div>
                         </div>
@@ -193,6 +238,7 @@ const Details = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

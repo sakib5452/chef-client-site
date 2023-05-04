@@ -7,7 +7,8 @@ import LoginLayout from "../layouts/LoginLayout";
 import ChefDetail from "../ChefDetail/ChefDetail";
 import Blog from "../Blog/Blog";
 import Details from "../Details/Details";
-import Recipes from "../Recipes/Recipes";
+import NotFound from "../NotFound/NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Navigate to="/chef/0"></Navigate>
+                element: <Navigate to="/chef"></Navigate>
             },
             {
                 path: 'login',
@@ -38,11 +39,11 @@ const router = createBrowserRouter([
         ]
     },
     {
-        path: 'chef',
+        path: '/chef',
         element: <Main></Main>,
         children: [
             {
-                path: ':id',
+                path: '/chef',
                 element: <ChefDetail></ChefDetail>,
                 loader: () => fetch(`http://localhost:5000/chef/`)
             },
@@ -51,9 +52,13 @@ const router = createBrowserRouter([
     },
     {
         path: 'detail/:id',
-        element: <Details></Details>,
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/chef/${params.id}`)
     },
+    {
+        path: "*",
+        element: <NotFound></NotFound>
+    }
 ])
 
 export default router

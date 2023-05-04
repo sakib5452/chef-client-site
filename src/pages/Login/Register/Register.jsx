@@ -4,7 +4,8 @@ import pic from '../../../assets/Login.jpg'
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Register = () => {
-
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     const { createUser } = useContext(AuthContext);
     const [accepted, setAccepted] = useState(false);
 
@@ -15,15 +16,29 @@ const Register = () => {
         const photo = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
+        setSuccess('')
+        setError('')
+
+
+        if (!/(?=.*?[A-Z])/.test(password)) {
+            setError('Please add at least one uppercase')
+            return
+        }
 
         console.log(name, photo, email, password)
         createUser(email, password)
             .then(result => {
                 const createdUser = result.user;
+
                 console.log(createdUser);
+                setError('');
+                event.target.reset();
+                setSuccess('User has created Success')
             })
             .catch(error => {
-                console.log(error);
+                console.error(error.message);
+                setError(error.message);
+                event.target.reset();
             })
     }
 
@@ -68,6 +83,8 @@ const Register = () => {
                                 </label>
                                 <input type="text" placeholder="Enter password" name='password' className="input input-bordered" required />
                             </div>
+                            <p className='text-red-500 text-center'>{error}</p>
+                            <p className='text-success'>{success}</p>
                             <div className="form-control">
                                 <label className="label">
                                 </label>
@@ -81,6 +98,7 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+
         </div>
     );
 };

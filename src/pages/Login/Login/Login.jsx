@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
 import pic from '../../../assets/Login.jpg'
+import GoogleAndGit from '../GoogleAndGit/GoogleAndGit';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
@@ -60,8 +63,10 @@ const Login = () => {
                             </div>
                             <h4> Don't Have an Account? <Link to="/register">Register</Link></h4>
                         </div>
+                        <GoogleAndGit></GoogleAndGit>
                     </form>
                 </div>
+
             </div>
         </div>
     );
