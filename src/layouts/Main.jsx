@@ -13,8 +13,8 @@ const Main = () => {
         <div>
             <NavigationBar></NavigationBar>
             <Header></Header>
-            <Outlet></Outlet>
             <About></About>
+            <Outlet></Outlet>
             <Recipes></Recipes>
             <Footer></Footer>
         </div>

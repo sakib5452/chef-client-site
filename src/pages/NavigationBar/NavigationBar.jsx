@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import logo from '../../../src/assets/logo.png'
 const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
-
     const handleLogOut = () => {
         logOut()
             .then()
@@ -31,8 +30,6 @@ const NavigationBar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/blog">Blog</NavLink></li>
-
-
                     </ul>
                 </div>
 
@@ -40,7 +37,7 @@ const NavigationBar = () => {
                     <div className="dropdown dropdown-end ml-96">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                <img src={user?.photoURL} />
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">

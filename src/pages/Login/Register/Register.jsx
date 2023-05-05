@@ -87,13 +87,14 @@ const Register = () => {
                             <p className='text-success'>{success}</p>
                             <div className="form-control">
                                 <label className="label">
+                                    <input onClick={handleAccepted} type="checkbox" name="accept" />
+                                    <span className="label-text mr-28">{<>Accept <span className='text-primary'><Link to="/terms">Terms and Conditions</Link></span> </>}</span>
                                 </label>
-                                <input onClick={handleAccepted} type="checkbox" name="accept" label={<>Accept <Link to="/terms">Terms and Conditions</Link> </>} />
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary" disabled={!accepted}> Register</button>
                             </div>
-                            <h4>  Already Have an Account? <Link to="/login">Login</Link></h4>
+                            <h4>  Already Have an Account? <span className='text-primary'><Link to="/login">Login</Link></span></h4>
                         </div>
                     </form>
                 </div>
