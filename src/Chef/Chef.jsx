@@ -1,6 +1,7 @@
 import React from 'react';
 import { HandThumbUpIcon } from '@heroicons/react/24/solid'
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 const Chef = ({ chef }) => {
     const { id, chefName, chefImg, experience, recipes, likes } = chef
@@ -9,7 +10,7 @@ const Chef = ({ chef }) => {
             <section class="shadow-xl rounded-lg">
                 <article class="mx-auto pb-5 max-w-sm transform duration-500 hover:-translate-y-1 cursor-pointer group">
                     <div class="max-h-125 overflow-hidden">
-                        <img class="transform duration-300 group-hover:scale-110 h-96 rounded-lg" src={chefImg} alt="" />
+                        <LazyLoad><img class="transform duration-300 group-hover:scale-110 h-96 rounded-lg" src={chefImg} alt="" /></LazyLoad>
                     </div>
                     <div class="flex justify-between my-5 ">
                         <div class="font-bold text-2xl text-orange-500">{chefName}</div>

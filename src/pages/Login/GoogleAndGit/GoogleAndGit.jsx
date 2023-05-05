@@ -34,23 +34,23 @@ const GoogleAndGit = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setUser(loggedUser);
-                // navigate('/')
+                navigate('/chef')
             })
             .catch(error => {
                 console.log(error)
             })
     }
 
-    // const handleSignOut = () => {
-    //     signOut(auth)
-    //         .then(result => {
-    //             console.log(result);
-    //             setUser(null);
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(result => {
+                console.log(result);
+                setUser(null);
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
     return (
         <div>
 
